@@ -1,0 +1,54 @@
+
+<div class="row">
+  <% if @carrito.length > 0 %>
+  <div class="col-xs-12">
+    <h1>
+      <%= @titulo %> <%# link_to 'Nuevo Producto', new_admin_producto_path, class: "btn btn-success btn-xs" %>
+    </h1>
+  </div>
+<div class="col-xs-12">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Imagen</th>
+        <th>Producto</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+  <tbody>
+
+  <% @carrito.each do |producto| %>
+  <%# producto.to_s %>
+  
+  <tr>
+    <td><%= image_tag(producto["imagen"]["thumb_mini"]["url"], title: producto["nombre"], class: "img-responsive img-producto--lista") %></td>
+    <td><%= producto["nombre"] %></td>
+    <td><%= producto["descripcion"] %></td>
+    <td><%= producto["precio"] %></td>
+    <td>
+<!--       
+      <%# link_to 'Ver en tienda', producto_path(producto), class: "btn btn-default btn-xs", target: "_blank" %>
+      <%# link_to 'Editar', edit_admin_producto_path(producto), class: "btn btn-info btn-xs" %>
+      <%# link_to 'Eliminar', admin_producto_path(producto), method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger btn-xs" %> -->
+      
+    
+    </td>
+  </tr>
+  
+
+    <% end %>
+
+    <% else %>
+    <tr>
+      <td colspan="5"><strong>No hay productos</strong></td>
+    </tr>
+
+    <% end %>  
+</table>
+  </div>
+  </div>
+
+
+

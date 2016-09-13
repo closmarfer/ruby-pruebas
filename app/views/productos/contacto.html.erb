@@ -1,0 +1,48 @@
+<div class="container">
+	<h1>
+		<%= @titulo %>
+	</h1>
+	<%= raw @contenido %>
+	<h2>Mostrando cosas:</h2>
+	<pre>
+	<%= @accion %>
+	<%= @controlador %>
+	<br>
+	Tipo de petición: <%= @metodo %>
+	URL: <%= request.url %>
+	</pre>
+
+	<h3>Link con método post</h3>
+	<p>
+		<%= link_to "Contacto", contacto_post_url, :method => "post", data: {confirm: "Estás seguro?", params: 5} %>
+	</p>
+
+	<!-- El formulario de contacto -->
+	<%= form_tag("") do %>
+	<div class="form-group">
+		
+		<%= label_tag "nombre", "Nombre" %>
+		<%= text_field_tag "nombre", nil, class: "form-control" %>
+	</div>
+	<div class="form-group">
+		<%= label_tag "email", "Email" %>
+		<%= email_field_tag "email", nil, class: "form-control" %>
+	</div>
+	<div class="form-group">
+		<%= label_tag "asunto", "Asunto" %>
+		<%= text_field_tag "asunto", nil, class: "form-control" %>
+	</div>
+	<div class="form-group">
+		<%= label_tag "comentarios", "Comentarios" %>
+		<%= text_area_tag "comentarios", nil, class: "form-control" %>
+
+		
+	</div>
+	<div class="form-group">
+		<%= submit_tag "Enviar", class: "btn btn-success" %>
+	</div>
+
+	<% end %>
+
+</div>
+

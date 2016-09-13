@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @titulo_general %> | Panel de administración</title>
+  <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag "bootstrap.min", media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header id="cabecera-general">
+
+<div class="container">
+	<%= link_to image_tag("logo.png", alt: "Logo Covirán"), admin_productos_url, title: "Volver al inicio", "data-toggle":"tooltip", "data-placement": "right" %>
+	<div class="row">
+		<div class="col-xs-12">
+			<ul class="nav nav-tabs">
+				<li>
+					<%= link_to "Inicio del panel", admin_productos_url %>
+				</li>
+				<li>
+					<%= link_to "Otra entrada de menú", contacto_url %>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+	
+</header>
+<div id="contenido" class="container">
+	<% if notice %>
+		<div class="alert alert-success"><%= notice %></div>
+	<% end %>
+	<%= yield %>
+</div>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</body>
+</html>
